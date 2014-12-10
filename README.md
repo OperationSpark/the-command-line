@@ -13,7 +13,7 @@ Create a new Cloud9 workspace:
 Select "Clone From URL".
 2. In the "Source URL" form input, copy and paste in the following URL:
 
-        https://github.com/OperationSpark/logging.git
+        https://github.com/OperationSpark/the-command-line.git
 
 3. In the environment selection box, select "Custom".
 4. Finally, click the green button "Create".
@@ -32,6 +32,7 @@ Look at the bottom of the screen, you'll see the bash terminal open in the Conso
 
 If you're having trouble opening or finding the terminal on Cloud9, <a href="https://github.com/OperationSpark/javascript-wiki/wiki/The-Command-Line#user-content-opening-a-terminal-on-cloud9" target="_blank">follow these instructions here</a>
 
+Firstly, select the Console View to give the bash terminal the focus, you'll know it has the focus becasue the cursor at the end of the prompt will turn black.
 
 **TODO 1 : Looking Around with _Present Working Directory_ and _List Services_**
 
