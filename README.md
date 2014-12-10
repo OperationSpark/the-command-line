@@ -98,7 +98,7 @@ drwxr-xr-x  4 ubuntu ubuntu 4096 Dec  9 23:49 files/
 
 You get the point- we've requested to also show all hidden files as well as the long form details of each file in our present working directory!
 
-**TODO 2 Navigating the Filesystem**
+##Navigating the Filesystem
 
 ###cd Change Directories
 
@@ -172,6 +172,8 @@ myuser@the-command-line:~/workspace (master) $
 
 If there's a conflict, and you hit tab, the first time you press tab, nothing will happen, the second time, you may here a beep, then bash will display the choices, but narrowed to your search criteria.
 
+##Manipulating Data
+
 ###cat Catenate
 
 We can use the `cat` command (short for catenate, a synonym of concatenate) to output contents of a file to the terminal, and can be used to concatenate and list files.
@@ -228,5 +230,3 @@ Some things to note about the last example.  Unix/Linux commands allow passing t
 The symbol `|`, which means _pipe_, takes the output from the left side command and passes it into the right side command.  And the `>` symbol, which means _redirect_, redirects the output of the left side operation to to some file named on the right - and if that files doesn't exists, as is the case in our last example, it will be created.
 
 Finally, the `sed` command, used for manipulating character streams, the usage `sed s/Dad/Mom/` uses the _substitute_ command of the sed utility, which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces the first match with the character sequece _after_ the next delimiter, which is `Mom`.
-
-
