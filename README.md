@@ -34,9 +34,9 @@ If you're having trouble opening or finding the terminal on Cloud9, <a href="htt
 
 Firstly, select the Console View to give the bash terminal the focus, you'll know it has the focus becasue the cursor at the end of the prompt will turn black.
 
-**TODO 1 : Looking Around with _Present Working Directory_ and _List Services_**
+##Looking Around with _Present Working Directory_ and _List Services_
 
-###pwd
+###pwd Present Working Directory
 
 Whenever you're using a terminal, you are doing so from within a directory on the filesystem.  You can always ask which directory you're in by running the command, `pwd`, which stands for present working directory.  Type, `pwd`, the press `return`:
 
@@ -47,7 +47,7 @@ myuser@the-command-line:~/workspace (master) $ pwd
 
 Awesome, the `pwd` command returns the path to our location where we're currently running the terminal.
 
-###ls (List Services)
+###ls List Services
 
 You'll often want to know what files are in this directory with you.  The _List Services_ command helps you see what files you have in your _present working directory_.  Type `ls` and hit `return`:
 
@@ -100,7 +100,7 @@ You get the point- we've requested to also show all hidden files as well as the 
 
 **TODO 2 Navigating the Filesystem**
 
-###cd (Change Directories)
+###cd Change Directories
 
 Probably the thing you'll do most often on the commannd line is navigate.  To change directories, you use the `cd` command, which stands for _change directory_
 
@@ -157,7 +157,7 @@ myuser@the-command-line:~/workspace/files (master) $ cd ../../
 myuser@the-command-line:~
 ````
 
-Whoa, see what we did there?  We used navigated backwards 2 directories by typing `../`, twice.  Alright though, we've gone too far, so let's go back to our workspace directory, BUT, before we do, let's learn about _auto-completion_:
+Whoa, see what we did there?  We navigated backwards 2 directories by typing `../`, twice.  Alright though, we've gone too far, so let's go back to our workspace directory, BUT, before we do, let's learn about _auto-completion_:
 
 ###Auto Completion
 
@@ -172,18 +172,25 @@ myuser@the-command-line:~/workspace (master) $
 
 If there's a conflict, and you hit tab, the first time you press tab, nothing will happen, the second time, you may here a beep, then bash will display the choices, but narrowed to your search criteria.
 
-Cool, let's peer inside some files.  First, jump into the directory at `~/workspace/files/letters/dad`.  Use the `cd` command with auto complete to get you there faster:
-
-````
-myuser@the-command-line:~/workspace (master) $ cd files/letters/dad/
-myuser@the-command-line:~/workspace/files/letters/dad (master) $ 
-````
-
-###cat (catenate)
+###cat Catenate
 
 We can use the `cat` command (short for catenate, a synonym of concatenate) to output contents of a file to the terminal, and can be used to concatenate and list files.
 
-Let's see what we wrote to dad in our first letter to him.  First, though, let's try our auto complete: start typing `cat dad-`, then press `tab`, twice:
+````
+myuser@the-command-line:~/workspace (master) $ cd ~/workspace/files/names/
+myuser@the-command-line:~/workspace/files/names (master) $ cat 2015-boys.txt 2015-girls.txt > 2015.txt
+````
+
+Cool!!! A new file was created, concatenating all the girls and boys from 2015 into one file called `2015.txt`!
+
+Alrighty, let's zoom over to have a look at the letters we wrote dear old dad (don't forget to use autocompletion):
+
+````
+myuser@the-command-line:~/workspace/files/names (master) $ cd ../letters/dad/
+myuser@the-command-line:~/workspace/files/letters/dad (master) $
+````
+
+Let's see what we wrote to dad in our first letter to him.  Though first, let's try our auto complete: start typing `cat dad-`, then press `tab`, twice:
 
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-
@@ -202,7 +209,11 @@ One Lorem ipsum dolor sit amet, vivendo intellegam ne duo. Ubique aliquam vulput
 Etc...
 ````
 
-Cool, we just printed the contents of our letter to the screen!  `cat` can do some neat things, though not always as intended - check this out, we'll use the `pipe` and `redirect` features with another command `sed` (stream editor), to create a form letter:
+Cool, we just printed the contents of our letter to the screen!  `cat` can do some neat things, though not always as intended...
+
+###sed Stream Editor
+
+Check this out use of `cat`, along with the `pipe` and `redirect` features, and in combination with another command `sed` (stream editor).  Using all of these together, we're going to create a form letter:
 
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-two.txt | sed s/Dad/Mom/ | sed s/Two/Three/ > ../mom/mom-three.txt
@@ -212,12 +223,10 @@ Running this rather long set of commands will create a file called `mom-three.tx
 
 Are you seeing some possiblities here?
 
+Some things to note about the last example.  Unix/Linux commands allow passing the output or result of one command as input to the next command.
 
-We can use `cat` to actually concatenate files, which was its original purpose:
+The symbol `|`, which means _pipe_, takes the output from the left side command and passes it into the right side command.  And the `>` symbol, which means _redirect_, redirects the output of the left side operation to to some file named on the right - and if that files doesn't exists, as is the case in our last example, it will be created.
 
-````
-myuser@the-command-line:~/workspace/files/letters/dad (master) $ cd ~/workspace/files/names/
-myuser@the-command-line:~/workspace/files/names (master) $ cat 2015-boys.txt 2015-girls.txt > 2015.txt
-````
+Finally, the `sed` command, used for manipulating character streams, the usage `sed s/Dad/Mom/` uses the _substitute_ command of the sed utility, which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces the first match with the character sequece _after_ the next delimiter, which is `Mom`.
 
-Cool!!! A new file was created, concatenating all the girls and boys from 2015 into one file called `2015.txt`!
+
