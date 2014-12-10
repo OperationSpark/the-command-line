@@ -26,7 +26,11 @@ Nice, you're in business...
 
 Because you'll be doing this so often, the first thing we're gonna do is look around and navigate a bit on the filesystem:
 
-Look at the bottom of the screen, you'll see the bash terminal open in the Console View.  If you're having trouble opening or finding the terminal on Cloud9, <a href="https://github.com/OperationSpark/javascript-wiki/wiki/The-Command-Line#user-content-opening-a-terminal-on-cloud9" target="_blank">follow these instructions here</a>
+Look at the bottom of the screen, you'll see the bash terminal open in the Console View:
+
+<img src="https://raw.githubusercontent.com/OperationSpark/javascript-wiki/master/images/c9-console.png" alt="The Console View">
+
+If you're having trouble opening or finding the terminal on Cloud9, <a href="https://github.com/OperationSpark/javascript-wiki/wiki/The-Command-Line#user-content-opening-a-terminal-on-cloud9" target="_blank">follow these instructions here</a>
 
 
 **TODO 1 : Looking Around with _Present Working Directory_ and _List Services_**
