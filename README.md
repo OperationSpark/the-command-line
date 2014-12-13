@@ -40,6 +40,7 @@ Firstly, select the Console View to give the bash terminal the focus, you'll kno
 
 Whenever you're using a terminal, you are doing so from within a directory on the filesystem.  You can always ask which directory you're in by running the command, `pwd`, which stands for present working directory.  Type, `pwd`, the press `return`:
 
+####TODO 1 :
 ````
 myuser@the-command-line:~/workspace (master) $ pwd
 /home/ubuntu/workspace
@@ -51,6 +52,7 @@ Awesome, the `pwd` command returns the path to our location where we're currentl
 
 You'll often want to know what files are in this directory with you.  The _List Services_ command helps you see what files you have in your _present working directory_.  Type `ls` and hit `return`:
 
+####TODO 2 :
 ````
 myuser@the-command-line:~/workspace (master) $ ls
 README.md  files/
@@ -62,6 +64,8 @@ We know that the `README.md` is a file of the type `.md` (which stands for markd
 
 Let's take advantage of some of the flags of the `ls` command to learn more about our files.  Try adding the `-a` flag to see any hidden files in our present working directory:
 
+####TODO 3 :
+
 ````
 myuser@the-command-line:~/workspace (master) $ ls -a
 ./  ../  .c9/  .git/  .gitignore  README.md  files/
@@ -71,6 +75,7 @@ Whoa, quite a few!  We have `./`, which actually means the present working direc
 
 Alright, let's use one more flag on the `ls` command, the `-l` flag, which stand for _long form_:
 
+####TODO 4 :
 ````
 myuser@the-command-line:~/workspace (master) $ ls -l
 -rw-rw-r-- 1 ubuntu ubuntu 3298 Dec 10 03:35 README.md
@@ -84,6 +89,7 @@ Okay!  For the breakdown of the information returned by `ls -l`, here a blurb fr
 
 One more trick: some commands will let us apply multiple flags at once. Let's see how `ls` will handle both `a` and `l` flags together:
 
+####TODO 5 :
 ````
 myuser@the-command-line:~/workspace (master) $ ls -al
 total 28
@@ -104,7 +110,9 @@ You get the point- we've requested to also show all hidden files as well as the 
 
 Probably the thing you'll do most often on the commannd line is navigate.  To change directories, you use the `cd` command, which stands for _change directory_
 
-From our `workspace`, let's change directories into our `files` directory.
+From our `workspace`, let's change directories into our `files` directory:
+
+####TODO 6 :
 
 ````
 myuser@the-command-line:~/workspace (master) $ cd files
@@ -115,12 +123,15 @@ Excellent!  We've moved into the `files` directory, and the prompt now tells us 
 
 We can now use `ls` to look around this new loation:
 
+####TODO 7 :
 ````
 myuser@the-command-line:~/workspace/files (master) $ ls
 letters/  names/
 ````
 
 Looky there, we have two directories in here!  Let's step inside the `letters` directory:
+
+####TODO 8 :
 
 ````
 myuser@the-command-line:~/workspace/files (master) $ cd letters
@@ -129,6 +140,7 @@ myuser@the-command-line:~/workspace/files/letters (master) $
 
 Fine, we're now inside the `letters`.  What's your next move?  Look around, of course:
 
+####TODO 9 :
 ````
 myuser@the-command-line:~/workspace/files/letters (master) $ ls
 dad/  mom/
@@ -136,21 +148,25 @@ dad/  mom/
 
 Ok, two other directories, and now, instead of moving inside either of those two directories, let's peer into them from the outside.  The `ls` command can take a path to a directory on which you want to list services:
 
+####TODO 10 :
 ````
 myuser@the-command-line:~/workspace/files/letters (master) $ ls mom/
 mom-one.txt  mom-two.txt
 ````
 
-Nice, we just looked inside the `mom` directory from our present working directory, and not from inside of the `mom` directory, and in there we see we've written 2 letters to mom!  Aren't we great?
+Nice, we just looked inside the `mom` directory from our present working directory, and not from inside of the `mom` directory itself.  And in there we see we've written 2 letters to mom!  Aren't we great?
 
 Ok, now how do we move back up the filesystem?  Easy, we use `cd ..` to go back up on directory:
 
+####TODO 11 :
 ````
 myuser@the-command-line:~/workspace/files/letters (master) $ cd ..
 myuser@the-command-line:~/workspace/files
 ````
 
 Sweet, we went back upstairs one level:
+
+####TODO 12 :
 
 ````
 myuser@the-command-line:~/workspace/files (master) $ cd ../../
@@ -165,6 +181,7 @@ Typing long file names can be a drag and slow us down, so bash offers us auto co
 
 Try typing `cd wo`, then press `tab`, and bash should fill-in the directory name, `workspace`.  Press enter to change into the `workspace` directory:
 
+####TODO 13 :
 ````
 myuser@the-command-line:~ (master) $ cd workspace
 myuser@the-command-line:~/workspace (master) $
@@ -178,6 +195,7 @@ While working on the command-line, you will often find yourself needing to make 
 
 From your current directory of `~/workspace`, use the `mkdir` command to make a directory called `sister`, where we'll store letter to our dear sister.
 
+####TODO 14 :
 ````
 myuser@the-command-line:~/workspace (master) $ mkdir files/letters/sister
 ````
@@ -188,7 +206,25 @@ Great, in the Cloud9 filesystem pane to the right, you'll now see added a new di
 
 ###touch
 
-Sometimes you'll find yourself need to create files on the command-line.  To do so, we have the `touch` command.
+Sometimes you'll find yourself needing to create files on the command-line.  The `touch` command in Linux is intended to change time stamps on files and directories, but it can also create an empty file if one does not already exist.
+
+####TODO 15 :
+````
+myuser@the-command-line:~/workspace (master) $ touch files/letters/letterhead.txt
+````
+
+You'll notice this created an empty text file in the `files/letters/` directory, called `letterhead.txt`
+
+###echo 
+
+`echo` expands variables and prints the evaluation, but it can also be used to redirect text into a new file.  Try this:
+
+####TODO 16 :
+````
+myuser@the-command-line:~/workspace (master) $ echo "Hey Sis, been a long time... Hope you are well! Love me!" > files/letters/sister/sister-one.txt
+````
+
+Now we have a new text file called `sister-one.txt` including our letter content!
 
 ##Manipulating Data
 
@@ -196,6 +232,7 @@ Sometimes you'll find yourself need to create files on the command-line.  To do 
 
 We can use <a href="http://en.wikipedia.org/wiki/Cat_%28Unix%29" target="_blank">the `cat` command</a> (short for catenate, a synonym of concatenate) to output contents of a file to the terminal, and can be used to concatenate and list files.
 
+####TODO 17 :
 ````
 myuser@the-command-line:~/workspace (master) $ cd ~/workspace/files/names/
 myuser@the-command-line:~/workspace/files/names (master) $ cat 2015-boys.txt 2015-girls.txt > 2015.txt
@@ -205,6 +242,7 @@ Cool!!! A new file was created, concatenating all the girls and boys from 2015 i
 
 Alrighty, let's zoom over to have a look at the letters we wrote dear old dad (don't forget to use autocompletion):
 
+####TODO 18 :
 ````
 myuser@the-command-line:~/workspace/files/names (master) $ cd ../letters/dad/
 myuser@the-command-line:~/workspace/files/letters/dad (master) $
@@ -212,14 +250,16 @@ myuser@the-command-line:~/workspace/files/letters/dad (master) $
 
 Let's see what we wrote to dad in our first letter to him.  Though first, let's try our auto complete: start typing `cat dad-`, then press `tab`, twice:
 
+####TODO 19 :
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-
 dad-one.txt  dad-two.txt
 jfraboni@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-
 ````
 
-...bash will present you with the remaining possible choices, and return you to where you were in the typing sequence!  Neat!
+...bash will present you with the remaining possible choices, and return you to where you were in the typing sequence!  Neat!  Continue:
 
+####TODO 20 :
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-one.txt
 Dad,
@@ -235,6 +275,7 @@ Cool, we just printed the contents of our letter to the screen!  `cat` can do so
 
 Check this out use of `cat`, along with the `pipe` and `redirect` features, and in combination with another command `sed` (stream editor).  Using all of these together, we're going to create a form letter:
 
+####TODO 21 :
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-two.txt | sed s/Dad/Mom/g | sed s/Two/Three/g > ../mom/mom-three.txt
 ````
@@ -249,3 +290,11 @@ The symbol `|`, which means _pipe_, takes the output from the left side command 
 
 Finally, we use the <a href="http://en.wikipedia.org/wiki/Sed" target="_blank">`sed` utility</a>, used for manipulating character streams.  Our usage looks like this: `sed s/Dad/Mom/g`.  Here, we use the _substitute_ command of the `sed` utility (which is what the `s` before the first `/` character signifies), which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces a match with the character sequece _after_ the next delimiter, which is `Mom`.  Important to note in our usage, we're also applying the subsitution globally to the stream of characters (denoted by the trailing `g` modifier).  If we didn't apply the global modifier, `sed` would only replace the _first_ match, then exit.
 
+That's a lot of commands and we only scrathed the surface!
+
+You should also check out:
+
+`cp path/to/file path/to/new/location/(optionally-renamed-file.txt)`
+`mv path/to/file path/to/new/location/(optionally-renamed-file.txt)
+
+Play around with them and Google for more information!
