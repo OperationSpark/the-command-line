@@ -172,11 +172,29 @@ myuser@the-command-line:~/workspace (master) $
 
 If there's a conflict, and you hit tab, the first time you press tab, nothing will happen, the second time, you may here a beep, then bash will display the choices, but narrowed to your search criteria.
 
+##mkdir Making Directories
+
+While working on the command-line, you will often find yourself needing to make directories and files.  We haven't written any letters to our sister yet, so let's take this opportunity to do so.
+
+From your current directory of `~/workspace`, use the `mkdir` command to make a directory called `sister`, where we'll store letter to our dear sister.
+
+````
+myuser@the-command-line:~/workspace (master) $ mkdir files/letters/sister
+````
+
+Great, in the Cloud9 filesystem pane to the right, you'll now see added a new directory, called `sister`.  Note, we created the new sister directory from outside of its parent directory!  To do that, we had to _first_ spell the path to _where_ we wanted to create our new `sister` directory, which, from our present working directory of `~/workspace`, meant we had to specify `files/letters/sister`.
+
+##Creating Files
+
+###touch
+
+Sometimes you'll find yourself need to create files on the command-line.  To do so, we have the `touch` command.
+
 ##Manipulating Data
 
 ###cat Catenate
 
-We can use the `cat` command (short for catenate, a synonym of concatenate) to output contents of a file to the terminal, and can be used to concatenate and list files.
+We can use <a href="http://en.wikipedia.org/wiki/Cat_%28Unix%29" target="_blank">the `cat` command</a> (short for catenate, a synonym of concatenate) to output contents of a file to the terminal, and can be used to concatenate and list files.
 
 ````
 myuser@the-command-line:~/workspace (master) $ cd ~/workspace/files/names/
@@ -218,7 +236,7 @@ Cool, we just printed the contents of our letter to the screen!  `cat` can do so
 Check this out use of `cat`, along with the `pipe` and `redirect` features, and in combination with another command `sed` (stream editor).  Using all of these together, we're going to create a form letter:
 
 ````
-myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-two.txt | sed s/Dad/Mom/ | sed s/Two/Three/ > ../mom/mom-three.txt
+myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-two.txt | sed s/Dad/Mom/g | sed s/Two/Three/g > ../mom/mom-three.txt
 ````
 
 Running this rather long set of commands will create a file called `mom-three.txt` in the `mom` directory, and you'll notice that the word `Dad` has been replaced with `Mom`, and the letter `Two` replaced with the letter `Three`!
@@ -229,4 +247,5 @@ Some things to note about the last example.  Unix/Linux commands allow passing t
 
 The symbol `|`, which means _pipe_, takes the output from the left side command and passes it into the right side command.  And the `>` symbol, which means _redirect_, redirects the output of the left side operation to to some file named on the right - and if that files doesn't exists, as is the case in our last example, it will be created.
 
-Finally, the `sed` command, used for manipulating character streams, the usage `sed s/Dad/Mom/` uses the _substitute_ command of the sed utility, which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces the first match with the character sequece _after_ the next delimiter, which is `Mom`.
+Finally, we use the <a href="http://en.wikipedia.org/wiki/Sed" target="_blank">`sed` utility</a>, used for manipulating character streams.  Our usage looks like this: `sed s/Dad/Mom/g`.  Here, we use the _substitute_ command of the `sed` utility (which is what the `s` before the first `/` character signifies), which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces a match with the character sequece _after_ the next delimiter, which is `Mom`.  Important to note in our usage, we're also applying the subsitution globally to the stream of characters (denoted by the trailing `g` modifier).  If we didn't apply the global modifier, `sed` would only replace the _first_ match, then exit.
+
