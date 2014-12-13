@@ -294,7 +294,15 @@ That's a lot of commands and we only scrathed the surface!
 
 You should also check out:
 
-`cp path/to/file path/to/new/location/(optionally-renamed-file.txt)`
-`mv path/to/file path/to/new/location/(optionally-renamed-file.txt)
+####cp Copy File
+    cp path/to/file path/to/new/location/(optionally-renamed-file.txt)
+
+####mv Move File
+    mv path/to/file path/to/new/location/(optionally-renamed-file.txt)
+    
+####rm Remove File
+    rm path/to/file
+
+Careful with that last one!
 
 Play around with them and Google for more information!
