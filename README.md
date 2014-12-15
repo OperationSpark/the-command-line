@@ -325,10 +325,12 @@ The symbol `|`, which means _pipe_, takes the output from the left side command 
 
 Finally, we use the <a href="http://en.wikipedia.org/wiki/Sed" target="_blank">`sed` utility</a>, used for manipulating character streams.  Our usage looks like this: `sed s/Dad/Mom/g`.  Here, we use the _substitute_ command of the `sed` utility (which is what the `s` before the first `/` character signifies), which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces a match with the character sequece _after_ the next delimiter, which is `Mom`.  Important to note in our usage, we're also applying the subsitution globally to the stream of characters (denoted by the trailing `g` modifier).  If we didn't apply the global modifier, `sed` would only replace the _first_ match, then exit.
 
+`sed` is a powerful command, and we encourage you to read up on all that it can do!
+
 ---
 
-Excellent work, superuser!
+Excellent work, superuser, we've come to the end of our brief lesson on using the command line!
 
-That's a lot of commands and we only scratched the surface!
+We've covered a lot of commands and we only scratched the surface!
 
 Play around with all of them, make them part of your workflow, and Google for more information!
