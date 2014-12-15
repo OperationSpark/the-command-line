@@ -202,7 +202,7 @@ myuser@the-command-line:~/workspace (master) $ mkdir files/letters/sister
 
 Great, in the Cloud9 filesystem pane to the right, you'll now see added a new directory, called `sister`.  Note, we created the new sister directory from outside of its parent directory!  To do that, we had to _first_ spell the path to _where_ we wanted to create our new `sister` directory, which, from our present working directory of `~/workspace`, meant we had to specify `files/letters/sister`.
 
-##Creating Files
+##Creating, Copying, Moving and Removing Files
 
 ###touch
 
@@ -226,13 +226,48 @@ myuser@the-command-line:~/workspace (master) $ echo "Hey Sis, been a long time..
 
 Now we have a new text file called `sister-one.txt` including our letter content!
 
+###cp Copy File or Directory
+
+You will sometimes need to copy files, and for that, we have the `cp` command.  You should already be in the `~/workspace` directory, so let's change directories into our `files/names` directory and copy a file:
+
+####TODO 17 :
+
+````
+myuser@the-command-line:~/workspace (master) $ cd ~/workspace/files/names/
+myuser@the-command-line:~/workspace/files/names (master) $ cp 2015-girls.txt 2015-females.txt
+````
+
+Nice one, you should see a new file in the `names` directory called `2015-females.txt`!
+
+####mv Move File
+
+Moving files and directories will become part of your work, so let's try that too.  Using the `mv`, we can not only move the file to another directory, we can also _rename_ a file:
+
+####TODO 18 :
+````
+myuser@the-command-line:~/workspace/files/names (master) $ mv 2015-females.txt ../2015-girls.txt
+````
+
+Great stuff, in this last step, you moved the file from our present working directory of `names` to the parent directory of `files`, while _also_ renaming the file!
+
+####rm Remove File
+
+Alrighty, well, we might as well clean up our work a bit.  Stay here in the `names` directory, but let's delete that file we jjst moved:
+
+####TODO 19 :
+````
+myuser@the-command-line:~/workspace/files/names (master) $ rm ../2015-girls.txt
+````
+
+Fantastic, we deleted the `2015-girls.txt` in the `files` directory!  Be careful with the `rm`, it's permanent!
+
 ##Manipulating Data
 
 ###cat Catenate
 
 We can use <a href="http://en.wikipedia.org/wiki/Cat_%28Unix%29" target="_blank">the `cat` command</a> (short for catenate, a synonym of concatenate) to output contents of a file to the terminal, and can be used to concatenate and list files.
 
-####TODO 17 :
+####TODO 20 :
 ````
 myuser@the-command-line:~/workspace (master) $ cd ~/workspace/files/names/
 myuser@the-command-line:~/workspace/files/names (master) $ cat 2015-boys.txt 2015-girls.txt > 2015.txt
@@ -242,7 +277,7 @@ Cool!!! A new file was created, concatenating all the girls and boys from 2015 i
 
 Alrighty, let's zoom over to have a look at the letters we wrote dear old dad (don't forget to use autocompletion):
 
-####TODO 18 :
+####TODO 21 :
 ````
 myuser@the-command-line:~/workspace/files/names (master) $ cd ../letters/dad/
 myuser@the-command-line:~/workspace/files/letters/dad (master) $
@@ -250,7 +285,7 @@ myuser@the-command-line:~/workspace/files/letters/dad (master) $
 
 Let's see what we wrote to dad in our first letter to him.  Though first, let's try our auto complete: start typing `cat dad-`, then press `tab`, twice:
 
-####TODO 19 :
+####TODO 22 :
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-
 dad-one.txt  dad-two.txt
@@ -259,7 +294,7 @@ jfraboni@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-
 
 ...bash will present you with the remaining possible choices, and return you to where you were in the typing sequence!  Neat!  Continue:
 
-####TODO 20 :
+####TODO 23 :
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-one.txt
 Dad,
@@ -275,7 +310,7 @@ Cool, we just printed the contents of our letter to the screen!  `cat` can do so
 
 Check this out use of `cat`, along with the `pipe` and `redirect` features, and in combination with another command `sed` (stream editor).  Using all of these together, we're going to create a form letter:
 
-####TODO 21 :
+####TODO 24 :
 ````
 myuser@the-command-line:~/workspace/files/letters/dad (master) $ cat dad-two.txt | sed s/Dad/Mom/g | sed s/Two/Three/g > ../mom/mom-three.txt
 ````
@@ -290,19 +325,10 @@ The symbol `|`, which means _pipe_, takes the output from the left side command 
 
 Finally, we use the <a href="http://en.wikipedia.org/wiki/Sed" target="_blank">`sed` utility</a>, used for manipulating character streams.  Our usage looks like this: `sed s/Dad/Mom/g`.  Here, we use the _substitute_ command of the `sed` utility (which is what the `s` before the first `/` character signifies), which looks for the character sequence (or regular expression) after the first delimiter (`/`), which in this case is `Dad`, and replaces a match with the character sequece _after_ the next delimiter, which is `Mom`.  Important to note in our usage, we're also applying the subsitution globally to the stream of characters (denoted by the trailing `g` modifier).  If we didn't apply the global modifier, `sed` would only replace the _first_ match, then exit.
 
-That's a lot of commands and we only scrathed the surface!
+---
 
-You should also check out:
+Excellent work, superuser!
 
-####cp Copy File
-    cp path/to/file path/to/new/location/(optionally-renamed-file.txt)
+That's a lot of commands and we only scratched the surface!
 
-####mv Move File
-    mv path/to/file path/to/new/location/(optionally-renamed-file.txt)
-    
-####rm Remove File
-    rm path/to/file
-
-Careful with that last one!
-
-Play around with them and Google for more information!
+Play around with all of them, make them part of your workflow, and Google for more information!
